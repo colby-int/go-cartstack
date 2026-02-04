@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "deploy": "npm run build && wrangler pages deploy dist --project-name go-cartstack",
     "lint": "eslint .",
     "preview": "vite preview"
   },
@@ -16,7 +17,8 @@
     "react-dom": "^19.2.0",
     "tailwind-merge": "^3.4.0",
     "uuid": "^13.0.0",
-    "wavesurfer.js": "^7.12.1"
+    "wavesurfer.js": "^7.12.1",
+    "wrangler": "^4.62.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.1",

@@ -351,31 +351,37 @@ export const AudioEditor: React.FC<AudioEditorProps> = ({
     }
   };
 
+  const logoUrl = `${import.meta.env.BASE_URL}logo.png`;
+
   return (
     <div className="flex-1 flex flex-col h-full bg-neutral-900 overflow-hidden">
-      <div className="p-4 border-b border-neutral-800 flex items-center justify-between bg-black gap-4">
-        <div className="flex items-center gap-3">
-          <img src="/logo.png" alt="Go DDO" className="h-6 w-6 object-contain" />
+      <div className="p-4 border-b border-neutral-800 flex flex-col gap-3 bg-black sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex items-center gap-3 min-w-0 flex-wrap">
+          <img src={logoUrl} alt="Go DDO" className="h-6 w-6 object-contain" />
           <h2 className="font-bold text-broadcast-text">EDITOR</h2>
-          <span className="text-sm text-broadcast-muted font-mono">{status}</span>
+          <span className="text-xs sm:text-sm text-broadcast-muted font-mono truncate max-w-full sm:max-w-[320px]">
+            {status}
+          </span>
         </div>
 
-        <div className="flex items-center gap-2 flex-wrap justify-end">
+        <div className="flex items-center gap-2 flex-wrap justify-start sm:justify-end w-full sm:w-auto">
           {!isRecording ? (
             <button
               onClick={startRecording}
-              className="flex items-center gap-2 px-3 py-1.5 bg-red-900/50 hover:bg-red-900 text-red-200 rounded border border-red-800 transition-colors text-sm font-medium"
+              className="flex items-center gap-2 px-2.5 sm:px-3 py-1.5 bg-red-900/50 hover:bg-red-900 text-red-200 rounded border border-red-800 transition-colors text-xs sm:text-sm font-medium"
             >
               <Mic className="w-4 h-4" />
-              <span>REC LOOPBACK</span>
+              <span className="hidden sm:inline">REC LOOPBACK</span>
+              <span className="sm:hidden">REC</span>
             </button>
           ) : (
             <button
               onClick={stopRecording}
-              className="flex items-center gap-2 px-3 py-1.5 bg-neutral-700 hover:bg-neutral-600 text-white rounded border border-neutral-600 transition-colors text-sm font-medium animate-pulse"
+              className="flex items-center gap-2 px-2.5 sm:px-3 py-1.5 bg-neutral-700 hover:bg-neutral-600 text-white rounded border border-neutral-600 transition-colors text-xs sm:text-sm font-medium animate-pulse"
             >
               <Square className="w-4 h-4 fill-current" />
-              <span>STOP REC</span>
+              <span className="hidden sm:inline">STOP REC</span>
+              <span className="sm:hidden">STOP</span>
             </button>
           )}
 
@@ -396,13 +402,14 @@ export const AudioEditor: React.FC<AudioEditorProps> = ({
                 onClick={addSelectionToStack}
                 disabled={!hasRegion || !selectedStackId}
                 className={cn(
-                  'flex items-center gap-2 px-3 py-1.5 rounded border transition-colors text-sm font-medium',
+                  'flex items-center gap-2 px-2.5 sm:px-3 py-1.5 rounded border transition-colors text-xs sm:text-sm font-medium',
                   hasRegion && selectedStackId
                     ? 'bg-neutral-800 text-neutral-100 border-neutral-600 hover:bg-neutral-700'
                     : 'bg-neutral-800 text-neutral-500 border-neutral-700 cursor-not-allowed'
                 )}
               >
-                ADD TO STACK
+                <span className="hidden sm:inline">ADD TO STACK</span>
+                <span className="sm:hidden">ADD</span>
               </button>
             </div>
           )}
@@ -411,14 +418,15 @@ export const AudioEditor: React.FC<AudioEditorProps> = ({
             onClick={saveSelection}
             disabled={!hasRegion}
             className={cn(
-              'flex items-center gap-2 px-3 py-1.5 rounded border transition-colors text-sm font-medium',
+              'flex items-center gap-2 px-2.5 sm:px-3 py-1.5 rounded border transition-colors text-xs sm:text-sm font-medium',
               hasRegion
                 ? 'bg-broadcast-highlight text-white border-blue-600 hover:bg-blue-600'
                 : 'bg-neutral-800 text-neutral-500 border-neutral-700 cursor-not-allowed'
             )}
           >
             <Download className="w-4 h-4" />
-            <span>SAVE SELECTION</span>
+            <span className="hidden sm:inline">SAVE SELECTION</span>
+            <span className="sm:hidden">SAVE</span>
           </button>
         </div>
       </div>
