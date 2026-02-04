@@ -2,7 +2,7 @@
 
 
 # go-cartstack
-
+#### A browser-based audio cart stack player with multiple hotkeyed queues and a waveform editor for recording, trimming, and exporting clips. 
 ## Features
 ### Cart Stacks
 - Three stacks live in `src/App.tsx` (`STACKS`), with hotkeys `1`, `2`, `3` and labels `STACK A/B/C`.
