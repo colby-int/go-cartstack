@@ -1,4 +1,6 @@
-<img width="512" height="512" alt="logo" src="https://github.com/user-attachments/assets/f4f203e2-efc1-4f6a-b658-e6f83b282ddf" />
+<img width="52" height="52" alt="logo" src="https://github.com/user-attachments/assets/f4f203e2-efc1-4f6a-b658-e6f83b282ddf" />
+
+
 # go-cartstack
 
 ## Features
