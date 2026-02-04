@@ -1,10 +1,8 @@
+<img width="512" height="512" alt="logo" src="https://github.com/user-attachments/assets/f4f203e2-efc1-4f6a-b658-e6f83b282ddf" />
 # go-cartstack
 
-## Purpose
-- Provide a browser-based cart stack player and editor for broadcast-style workflows similar to Zetta/AirDDO.
-- Keep playback fast and predictable with independent stacks, each owning its own audio element.
-
-## Cart Stacks
+## Features
+### Cart Stacks
 - Three stacks live in `src/App.tsx` (`STACKS`), with hotkeys `1`, `2`, `3` and labels `STACK A/B/C`.
 - Each stack uses `CartStack` in `src/components/CartStack.tsx` and manages playback with `playCart`, `stopCart`, and the `handleEnded` listener.
 - The top item is always the active cart; pressing the hotkey plays `carts[0]` even if it was previously played.
@@ -14,7 +12,7 @@
 - Reorder within a stack uses the drag handle and `moveCartWithinStack`.
 - Cross-stack drag and drop uses a payload keyed by `CART_MIME` and `onMoveAcross` (defined in `src/App.tsx`).
 
-## Audio Editor
+### Audio Editor
 - `AudioEditor` in `src/components/AudioEditor.tsx` uses WaveSurfer with `RegionsPlugin` to render and edit audio.
 - Space toggles play/pause for the editor; Delete/Backspace performs ripple delete via `rippleDeleteSelection`.
 - Selection export uses `exportSelectionBlob` and `bufferToWave` to create a WAV file.
@@ -22,7 +20,7 @@
 - Loopback recording uses `startRecording` and `stopRecording` with `getDisplayMedia`, capturing audio-only tracks.
 - The editor header displays `public/logo.png` next to the “EDITOR” label.
 
-## Layout
+### Layout
 - The editor visibility toggle sits at the bottom-right of the window and is driven by `showEditor` state in `src/App.tsx`.
 
 ## Code Map
@@ -34,10 +32,10 @@
 - `src/lib/utils.ts` provides the `cn` class merge helper.
 - `public/logo.png` is the editor header icon.
 
-## Running Locally
+# Running Locally
 1. `npm install`
 2. `npm run dev`
 
-## Browser Permissions
+# Browser Permissions
 - Autoplay requires a user gesture before audio plays.
 - Loopback recording requires selecting “Share audio” in the screen-share prompt.
